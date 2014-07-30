@@ -1,6 +1,7 @@
 ###############################################################################
-# SELinux Reference Policy Module for Nginx on Debian
+# SELinux Reference Policy Module for Nginx on RHEL/CentOS
 # 
+# Copyright 2014 by J. Armando Uch <jahrmando@gmail.com>
 # Copyright 2013 by Joe Johnston <joe@simple10.com>
 # Copyright 2009 by Stuart Cianos <scianos@alphavida.com>
 # 
@@ -15,15 +16,9 @@
 # MLS sensitivity: s0
 # MCS categories: <none>
 
-/usr/sbin/nginx			--	gen_context(system_u:object_r:nginx_exec_t,s0)
-/var/run/nginx.pid			gen_context(system_u:object_r:nginx_var_run_t,s0)
-/var/log/nginx(/.*)?			gen_context(system_u:object_r:nginx_var_log_t,s0)
-/etc/nginx(/.*)?			gen_context(system_u:object_r:etc_t,s0)
-
-# Default location of HTML files
-/usr/share/nginx/www(/.*)?  	gen_context(user_u:object_r:httpd_sys_content_t,s0)
-
-# Custom location of HTML files
-/srv/nginx/www(/.*)?    gen_context(user_u:object_r:httpd_sys_content_t,s0)
-# Custom location cache files
-/srv/nginx/cache(/.*)?    gen_context(system_u:object_r:nginx_var_lib_t,s0)
+/usr/sbin/nginx         --      gen_context(system_u:object_r:nginx_exec_t,s0)
+/var/run/nginx.pid              gen_context(system_u:object_r:nginx_var_run_t,s0)
+/var/log/nginx(/.*)?            gen_context(system_u:object_r:nginx_var_log_t,s0)
+/var/cache/nginx(/.*)?          gen_context(system_u:object_r:nginx_var_lib_t,s0)
+/etc/nginx(/.*)?                gen_context(system_u:object_r:etc_t,s0)
+/usr/share/nginx/html(/.*)?     gen_context(user_u:object_r:httpd_sys_content_t,s0)

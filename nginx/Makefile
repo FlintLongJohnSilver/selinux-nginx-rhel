@@ -1,6 +1,7 @@
 ###############################################################################
-# SELinux Reference Policy Module for Nginx on Debian
+# SELinux Reference Policy Module for Nginx on RHEL/CentOS
 # 
+# Copyright 2014 by J. Armando Uch <jahrmando@gmail.com>
 # Copyright 2013 by Joe Johnston <joe@simple10.com>
 # Copyright 2009 by Stuart Cianos <scianos@alphavida.com>
 # 
@@ -16,6 +17,6 @@ AWK ?= gawk
 
 NAME ?= $(shell $(AWK) -F= '/^SELINUXTYPE/{ print $$2 }' /etc/selinux/config)
 SHAREDIR ?= /usr/share/selinux
-HEADERDIR := $(SHAREDIR)/$(NAME)/include
 
+HEADERDIR := $(SHAREDIR)/devel/include
 include $(HEADERDIR)/Makefile

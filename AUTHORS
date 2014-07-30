@@ -1,4 +1,5 @@
-SELinux Reference Policy Module for Nginx on Debian:
+SELinux Reference Policy Module for Nginx on RHEL/CentOS:
 
+ - J. Armando Uch <jahrmando@gmail.com>
  - Joe Johnston <joe@simple10.com>
  - Stuart Cianos <scianos@alphavida.com>
